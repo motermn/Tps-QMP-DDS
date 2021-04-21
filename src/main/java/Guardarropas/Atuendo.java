@@ -12,6 +12,4 @@ public class Atuendo {
     Atuendo() {
         prendasAdecuadas = new ArrayList<>();
     }
-    //Este es un commit de prueba
-
 }
