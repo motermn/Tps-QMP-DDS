@@ -1,2 +1,2 @@
 # Tps-QMP-DDS
-![diagrama] (QMP-Primera-Iteracion.png)
+![diagrama](QMP-Primera-Iteracion.png)
