@@ -1,5 +1,9 @@
 package Prendas;
 
-public enum Material {
+/*public enum Material {
     CUERO, JEAN, SEDA, ALGODON, POLIESTER;
+}*/
+
+public class Material {
+    Trama trama;
 }

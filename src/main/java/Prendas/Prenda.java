@@ -1,27 +1,30 @@
 package Prendas;
 
+import java.util.Objects;
+
 public class Prenda {
-    private Categoria categoria;
     private Color colorPrimario;
     private Color colorSecundario;
     private Material material;
     private Tipo tipo;
 
-    public Prenda(Categoria categoria, Color colorPrimario, Material material, Tipo tipo) {
-        this.categoria = categoria;
-        this.colorPrimario = colorPrimario;
+    public Prenda(Tipo tipo, Material material) {
+        this.validar(tipo, material);
         this.material = material;
-        this.validarTipo();
         this.tipo = tipo;
-        // Para esta implementación, no sabría cómo desarrollar el código que valide si no se pasa el valor de alguno de los atributos involucrados en esta sección. En otras palabras, no sabría como implementar una excepción de dominio con esta implementación
+    }
+
+    public void validar(Tipo tipo, Material material) {
+        Objects.requireNonNull(tipo, "Debe especificarse un tipo de prenda");
+        Objects.requireNonNull(material, "Debe especificarse un material");
     }
 
     public void setColorSecundario(Color colorSecundario) {
         this.colorSecundario = colorSecundario;
     }
 
-    public void validarTipo() {
-        // TODO
-        // En este método debería validarse si el tipo de la prenda ingresado coincide con el establecido en, por ejemplo, una base de datos
+    public Categoria categoria() {
+        return tipo.getCategoria();
     }
+
 }

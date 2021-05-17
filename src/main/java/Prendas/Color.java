@@ -1,5 +1,13 @@
 package Prendas;
 
-public enum Color {
-    ROJO, VERDE, AZUL, NEGRO, MARRON;
+class Color {
+    int rojo;
+    int verde;
+    int azul;
+
+    public Color(int rojo, int verde, int azul) {
+        this.rojo = rojo;
+        this.verde = verde;
+        this.azul = azul;
+    }
 }
