@@ -15,7 +15,7 @@ public class Prenda {
         this.trama = trama;
     }
 
-    public Categoria categoria() {
+    public Categoria getCategoria() {
         return tipoPrenda.getCategoria();
     }
 
@@ -23,4 +23,11 @@ public class Prenda {
         return trama;
     }
 
+    private TipoPrenda getTipoPrenda() {
+        return tipoPrenda;
+    }
+
+    public boolean acordeA(Categoria categoria, double temperatura) {
+        return this.getCategoria().equals(categoria) && this.getTipoPrenda().esAdecuada(temperatura);
+    }
 }

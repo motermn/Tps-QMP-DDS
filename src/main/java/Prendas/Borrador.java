@@ -52,7 +52,9 @@ public class Borrador { // Borrador es el PrendaBuilder
   }
 
   public Prenda construirPrenda() {
-    return new Prenda(tipoPrenda, material, colorPrimario, colorSecundario, trama);
+    Prenda prendaTerminada = new Prenda(tipoPrenda, material, colorPrimario, colorSecundario, trama);
+    // Acá debería agregar la prenda al guardarropas del usuario
+    return prendaTerminada;
   }
 
 }

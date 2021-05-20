@@ -1,9 +1,11 @@
 package Guardarropas;
 
+import Prendas.Categoria;
 import Prendas.Prenda;
 import Uniformes.Uniforme;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Guardarropas {
      private List<Prenda> prendas;
@@ -12,10 +14,20 @@ public class Guardarropas {
           prendas = new ArrayList<>();
      }
 
-     List<Atuendo> atuendosPosibles() {
-          // TODO
-          // El tipo y cantidad de parámetros de este método dependerá de cómo se va a determinar cada combinación, pero seguramente tomará la lista de prendas para tal acción
-          return new ArrayList<Atuendo>();
+     public void agregarPrenda(Prenda prenda) {
+          prendas.add(prenda); // No validé que la prenda no se haya cargado previamente
+     }
+
+     public Atuendo recibirSugerencia(double temperatura) {
+          Prenda prendaSuperior = this.sugerir(Categoria.PARTE_SUPERIOR, temperatura);
+          Prenda prendaInferior = this.sugerir(Categoria.PARTE_INFERIOR, temperatura);
+          Prenda calzado = this.sugerir(Categoria.CALZADO, temperatura);
+          Prenda accesorio = this.sugerir(Categoria.ACCESORIO, temperatura);
+          return new Atuendo(prendaSuperior, prendaInferior, calzado, accesorio);
+     }
+
+     private Prenda sugerir (Categoria categoria, double temperatura) {
+          return prendas.stream().findAny(prenda -> prenda.acordeA(categoria, temperatura));
      }
 
      List<Uniforme> uniformesPosibles() {
