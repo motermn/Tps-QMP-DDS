@@ -1,6 +1,6 @@
 package Prendas;
 
-class Color {
+public class Color {
     private int rojo;
     private int verde;
     private int azul;

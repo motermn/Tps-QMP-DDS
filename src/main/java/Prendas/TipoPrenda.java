@@ -12,7 +12,7 @@ public class TipoPrenda { // Esto podría haberse modelado con enums con comport
         return this.categoria;
     }
 
-    public static TipoPrenda zapato() {
+    public static TipoPrenda zapatos() {
         return new TipoPrenda(Categoria.CALZADO);
     }
 
@@ -22,6 +22,18 @@ public class TipoPrenda { // Esto podría haberse modelado con enums con comport
 
     public static TipoPrenda pantalon() {
         return new TipoPrenda(Categoria.PARTE_INFERIOR);
+    }
+
+    public static TipoPrenda zapatillas() {
+        return new TipoPrenda(Categoria.PARTE_INFERIOR);
+    }
+
+    public static TipoPrenda chomba() {
+        return new TipoPrenda(Categoria.PARTE_SUPERIOR);
+    }
+
+    public static TipoPrenda camisa() {
+        return new TipoPrenda(Categoria.PARTE_SUPERIOR);
     }
 }
 

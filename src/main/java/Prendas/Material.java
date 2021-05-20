@@ -1,7 +1,7 @@
 package Prendas;
 
 public enum Material {
-    CUERO, JEAN, SEDA, ALGODON, POLIESTER;
+    CUERO, JEAN, SEDA, ALGODON, POLIESTER, LONA, PIQUE, ACETATO, GABARDINA
 }
 /*
 import java.util.Objects;
