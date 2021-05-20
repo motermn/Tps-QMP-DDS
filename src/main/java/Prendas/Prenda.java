@@ -1,23 +1,26 @@
 package Prendas;
 
-import java.util.Objects;
-
 public class Prenda {
+    private TipoPrenda tipoPrenda;
     private Material material;
-    private TipoPrenda tipo;
+    private Color colorPrimario;
+    private Color colorSecundario;
+    private Trama trama;
 
-    public Prenda(TipoPrenda tipo, Material material) {
-        this.validar(tipo, material);
+    public Prenda(TipoPrenda tipoPrenda, Material material, Color colorPrimario, Color colorSecundario, Trama trama) {
+        this.tipoPrenda = tipoPrenda;
         this.material = material;
-        this.tipo = tipo;
-    }
-
-    public void validar(TipoPrenda tipo, Material material) { // Esto va a ser responsabilidad del borrador
-        Objects.requireNonNull(tipo, "Debe especificarse un tipo de prenda");
-        Objects.requireNonNull(material, "Debe especificarse un material");
+        this.colorPrimario = colorPrimario;
+        this.colorSecundario = colorSecundario;
+        this.trama = trama;
     }
 
     public Categoria categoria() {
-        return tipo.getCategoria();
+        return tipoPrenda.getCategoria();
     }
+
+    public Trama getTrama() {
+        return trama;
+    }
+
 }

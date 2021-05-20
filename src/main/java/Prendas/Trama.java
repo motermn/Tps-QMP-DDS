@@ -1,5 +1,5 @@
 package Prendas;
 
 public enum Trama {
-  LISA, RAYADA, A_LUNARES
+  LISA, RAYADA, CON_LUNARES, ESTAMPADO, A_CUADROS
 }

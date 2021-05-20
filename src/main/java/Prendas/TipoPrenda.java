@@ -1,10 +1,10 @@
 package Prendas;
 
-class TipoPrenda {
+public class TipoPrenda { // Esto podría haberse modelado con enums con comportamiento...
 
-    Categoria categoria;
+    private final Categoria categoria;
 
-    TipoPrenda(Categoria categoria) {
+    public TipoPrenda(Categoria categoria) {
         this.categoria = categoria;
     }
 
@@ -12,15 +12,15 @@ class TipoPrenda {
         return this.categoria;
     }
 
-    public TipoPrenda zapato() {
+    public static TipoPrenda zapato() {
         return new TipoPrenda(Categoria.CALZADO);
     }
 
-    public TipoPrenda remera() {
+    public static TipoPrenda remera() {
         return new TipoPrenda(Categoria.PARTE_SUPERIOR);
     }
 
-    public TipoPrenda pantalon() {
+    public static TipoPrenda pantalon() {
         return new TipoPrenda(Categoria.PARTE_INFERIOR);
     }
 }
