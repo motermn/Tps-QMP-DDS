@@ -1,9 +1,6 @@
 package Uniformes;
 
 import Prendas.Prenda;
-import com.sun.xml.internal.txw2.DatatypeWriter;
-
-import java.util.prefs.PreferenceChangeEvent;
 
 public class Uniforme {
   private Prenda parteSuperior;
