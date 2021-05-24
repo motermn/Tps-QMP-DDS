@@ -4,14 +4,15 @@ import Prendas.Prenda;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Atuendo {
-    Prenda prendaSuperior;
-    Prenda prendaInferior;
-    Prenda calzado;
-    Prenda accesorio;
+    Optional <Prenda> prendaSuperior;
+    Optional <Prenda> prendaInferior;
+    Optional <Prenda> calzado;
+    Optional <Prenda> accesorio;
 
-    public Atuendo(Prenda prendaSuperior, Prenda prendaInferior, Prenda calzado, Prenda accesorio) {
+    public Atuendo(Optional <Prenda> prendaSuperior, Optional <Prenda> prendaInferior, Optional <Prenda> calzado, Optional <Prenda> accesorio) {
         this.prendaSuperior = prendaSuperior;
         this.prendaInferior = prendaInferior;
         this.calzado = calzado;

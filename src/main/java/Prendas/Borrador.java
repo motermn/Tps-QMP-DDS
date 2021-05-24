@@ -8,6 +8,8 @@ public class Borrador { // Borrador es el PrendaBuilder
   private Color colorPrimario;
   private Color colorSecundario;
   private Trama trama = Trama.LISA;
+  private double temperaturaMinima;
+  private double temperaturaMaxima;
 
   public Borrador(TipoPrenda tipoPrenda) {
     Objects.requireNonNull(tipoPrenda, "Debe especificarse el tipo de prenda");
@@ -34,6 +36,12 @@ public class Borrador { // Borrador es el PrendaBuilder
     this.trama = trama;
   }
 
+  public void cargarTemperaturas(double temperaturaMinima, double temperaturaMaxima) {
+    this.validarNoNulo(temperaturaMinima, "Debe especificarse una temperatura minima para la prenda");
+    this.validarNoNulo(temperaturaMaxima, "Debe especificarse una temperatura maxima para la prenda");
+    this.temperaturaMaxima = temperaturaMaxima;
+  }
+
   private  <T> void validarNoNulo (T parametro, String message) { // Estoy repitiendo lógica como en la clase Material
     Objects.requireNonNull(parametro, message);
   }
@@ -52,8 +60,8 @@ public class Borrador { // Borrador es el PrendaBuilder
   }
 
   public Prenda construirPrenda() {
-    Prenda prendaTerminada = new Prenda(tipoPrenda, material, colorPrimario, colorSecundario, trama);
-    // Acá debería agregar la prenda al guardarropas del usuario
+    Prenda prendaTerminada = new Prenda(tipoPrenda, material, colorPrimario, colorSecundario, trama, temperaturaMinima, temperaturaMaxima);
+    // Acá debería agregar la prenda al guardarropas del usuario. Podría pasarsele como parámetro a este método
     return prendaTerminada;
   }
 
