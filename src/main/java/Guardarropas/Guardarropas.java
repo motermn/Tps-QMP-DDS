@@ -9,10 +9,12 @@ import Usuarios.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Guardarropas {
      private List<Prenda> prendas;
      private List<Borrador> borradores;
+     private List<Sugerencia> sugerencias;
 
      public Guardarropas() {
           prendas = new ArrayList<>();
@@ -36,4 +38,17 @@ public class Guardarropas {
           // Mismas consideraciones que para el método anterior
           return new ArrayList<Uniforme>();
      }
+
+     public void agregarSugerencia(Sugerencia sugerencia) {
+          this.sugerencias.add(sugerencia);
+     }
+
+     public List<Sugerencia> getSugerencias() {
+          return sugerencias;
+     }
+
+     public List<Sugerencia> sugerenciasSegun(TipoSugerencia tipoSugerencia) {
+          return sugerencias.stream().filter(sugerencia -> sugerencia.esDeTipo(tipoSugerencia)).collect(Collectors.toList());
+     }
+
 }
