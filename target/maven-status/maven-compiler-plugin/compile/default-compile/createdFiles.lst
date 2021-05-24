@@ -3,6 +3,7 @@ Prendas\Material.class
 Prendas\Color.class
 Prendas\Prenda.class
 Prendas\TipoPrenda.class
+Guardarropas\GuardarropasCompartido.class
 Guardarropas\Guardarropas.class
 AsesorDeImagen\AsesorDeImagen.class
 Uniformes\UniformeInstitucional.class
@@ -16,5 +17,7 @@ Clima\ProveedorClima.class
 Uniformes\Uniforme.class
 Clima\AccuWeatherAPI$1.class
 Clima\ServicioMeteorologicoAccuWeatherApi.class
+Exceptions\GuardarropasInvalidoException.class
 Prendas\Trama.class
 Uniformes\UniformeSanJuan.class
+Usuarios\Usuario.class

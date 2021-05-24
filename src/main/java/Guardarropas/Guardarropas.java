@@ -4,6 +4,8 @@ import Prendas.Borrador;
 import Prendas.Categoria;
 import Prendas.Prenda;
 import Uniformes.Uniforme;
+import Usuarios.Usuario;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
