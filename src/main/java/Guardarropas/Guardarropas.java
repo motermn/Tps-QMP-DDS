@@ -25,15 +25,7 @@ public class Guardarropas {
           borradores.add(borrador); // No validé que el borrador no se haya cargado previamente
      }
 
-     public Atuendo recibirSugerencia(double temperatura) {
-          Optional<Prenda> prendaSuperior = this.sugerir(Categoria.PARTE_SUPERIOR, temperatura);
-          Optional<Prenda> prendaInferior = this.sugerir(Categoria.PARTE_INFERIOR, temperatura);
-          Optional<Prenda> calzado = this.sugerir(Categoria.CALZADO, temperatura);
-          Optional<Prenda> accesorio = this.sugerir(Categoria.ACCESORIO, temperatura);
-          return new Atuendo(prendaSuperior, prendaInferior, calzado, accesorio);
-     }
-
-     private Optional<Prenda> sugerir (Categoria categoria, double temperatura) {
+     public Optional<Prenda> sugerirPrendaQueCumpla(Categoria categoria, double temperatura) {
           return prendas.stream().filter(prenda -> prenda.acordeA(categoria, temperatura)).findAny();
      }
 
