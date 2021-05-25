@@ -3,8 +3,6 @@ package Usuarios;
 import Exceptions.GuardarropasInvalidoException;
 import Guardarropas.*;
 import Prendas.Prenda;
-
-import java.security.Guard;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,8 +50,8 @@ public class Usuario {
       throw new GuardarropasInvalidoException("El guardarropas indicado no es un guardarropas compartido conmigo");
     }
   }
-
-  public List<Sugerencia> visualizarSugerencias(Guardarropas guardarropasPropio, TipoSugerencia tipoSugerencia) {
+// TODAS SIN DISTINGUIR
+  private List<Sugerencia> visualizarSugerencias(Guardarropas guardarropasPropio, TipoSugerencia tipoSugerencia) {
     this.validarpropio(guardarropasPropio);
     return guardarropasPropio.sugerenciasSegun(tipoSugerencia);
   }
@@ -70,6 +68,18 @@ public class Usuario {
     if(!guardarropasPropios.contains(guardarropasPropio)) {
       throw new GuardarropasInvalidoException("El guardarropas indicado no es un guardarropas propio");
     }
+  }
+
+  public void aceptarSugerencia(int indiceSugerencia, Guardarropas guardarropasPropio) {
+    guardarropasPropio.aceptar(indiceSugerencia);
+  }
+
+  public void rechazarSugerencia(int indiceSugerencia, Guardarropas guardarropasPropio) {
+    guardarropasPropio.rechazar(indiceSugerencia);
+  }
+
+  public void deshacerSugerencia(int indiceSugerencia, Guardarropas guardarropasPropio) {
+    guardarropasPropio.deshacer(indiceSugerencia);
   }
 
 }

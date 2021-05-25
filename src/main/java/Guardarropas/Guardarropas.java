@@ -25,7 +25,7 @@ public class Guardarropas {
           prendas.add(prenda); // No validé que la prenda no se haya cargado previamente
      }
 
-     public void agregarBorrador(Borrador borrador) {
+     public void guardarBorrador(Borrador borrador) {
           borradores.add(borrador); // No validé que el borrador no se haya cargado previamente
      }
 
@@ -49,6 +49,21 @@ public class Guardarropas {
 
      public List<Sugerencia> sugerenciasSegun(TipoSugerencia tipoSugerencia) {
           return sugerencias.stream().filter(sugerencia -> sugerencia.esDeTipo(tipoSugerencia)).collect(Collectors.toList());
+     }
+
+     public void aceptar(int indiceSugerencia) {
+          Sugerencia sugerencia = sugerencias.get(indiceSugerencia);
+          sugerencia.aceptar(this);
+     }
+
+     public void rechazar(int indiceSugerencia) {
+          Sugerencia sugerencia = sugerencias.get(indiceSugerencia);
+          sugerencia.rechazar(this);
+     }
+
+     public void deshacer(int indiceSugerencia) {
+          Sugerencia sugerencia = sugerencias.get(indiceSugerencia);
+          sugerencia.deshacer(this);
      }
 
 }

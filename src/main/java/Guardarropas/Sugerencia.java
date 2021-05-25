@@ -2,28 +2,36 @@ package Guardarropas;
 
 import Prendas.Prenda;
 
+import java.security.Guard;
+
 public class Sugerencia {
   private Prenda prenda;
   private TipoSugerencia tipoSugerencia;
+  private boolean aceptada;
 
   public Sugerencia(Prenda prenda, TipoSugerencia tipoSugerencia) {
     this.prenda = prenda;
     this.tipoSugerencia = tipoSugerencia;
+    this.aceptada = false;
   }
 
   public boolean esDeTipo(TipoSugerencia tipoSugerencia) {
     return this.tipoSugerencia.equals(tipoSugerencia);
   }
 
-  public void aceptar() {
-
+  public Prenda getPrenda() {
+    return this.prenda;
   }
 
-  public void rechazar() {
-
+  public void aceptar(Guardarropas guardarropas) {
+    // TODO
   }
 
-  public void deshacer() {
+  public void rechazar(Guardarropas guardarropas) {
+    // TODO
+  }
 
+  public void deshacer(Guardarropas guardarropas) {
+    // TODO
   }
 }
