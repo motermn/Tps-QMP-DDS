@@ -75,19 +75,19 @@ public class Usuario {
     }
   }
 
-  public void aceptarSugerencia(int indiceSugerencia, Guardarropas guardarropasPropio) {
-    this.validarpropio(guardarropasPropio);
-    guardarropasPropio.aceptar(indiceSugerencia);
+  public void aceptarSugerencia(int indiceSugerencia, GuardarropasCompartido guardarropasPropioCompartido) {
+    this.validarpropio(guardarropasPropioCompartido);
+    guardarropasPropioCompartido.aceptar(indiceSugerencia);
   }
 
-  public void rechazarSugerencia(int indiceSugerencia, Guardarropas guardarropasPropio) {
-    this.validarpropio(guardarropasPropio);
-    guardarropasPropio.rechazar(indiceSugerencia);
+  public void rechazarSugerencia(int indiceSugerencia, GuardarropasCompartido guardarropasPropioCompartido) {
+    this.validarpropio(guardarropasPropioCompartido);
+    guardarropasPropioCompartido.rechazar(indiceSugerencia);
   }
 
-  public void deshacerSugerencia(int indiceSugerencia, Guardarropas guardarropasPropio) {
-    this.validarpropio(guardarropasPropio);
-    guardarropasPropio.deshacer(indiceSugerencia);
+  public void deshacerSugerencia(int indiceSugerencia, GuardarropasCompartido guardarropasPropioCompartido) {
+    this.validarpropio(guardarropasPropioCompartido);
+    guardarropasPropioCompartido.deshacer(indiceSugerencia);
   }
 
 }

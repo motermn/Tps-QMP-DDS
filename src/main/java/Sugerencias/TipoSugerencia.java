@@ -1,6 +1,5 @@
 package Sugerencias;
 
-import Exceptions.PrendaNoExistenteException;
 import Guardarropas.Guardarropas;
 import Prendas.Prenda;
 
