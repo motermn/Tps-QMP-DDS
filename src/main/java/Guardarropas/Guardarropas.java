@@ -1,10 +1,12 @@
 package Guardarropas;
 
+import Exceptions.PrendaNoExistenteException;
 import Prendas.Borrador;
 import Prendas.Categoria;
 import Prendas.Prenda;
+import Sugerencias.Sugerencia;
+import Sugerencias.TipoSugerencia;
 import Uniformes.Uniforme;
-import Usuarios.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,17 @@ public class Guardarropas {
 
      public void guardarPrenda(Prenda prenda) {
           prendas.add(prenda); // No validé que la prenda no se haya cargado previamente
+     }
+
+     public void quitarPrenda(Prenda prenda) {
+          this.validarQueSeaPrendaExistente(prenda);
+          this.prendas.remove(prenda);
+     }
+
+     private void validarQueSeaPrendaExistente(Prenda prenda) {
+          if(!this.prendas.contains(prenda)) {
+               throw new PrendaNoExistenteException("La prenda que se desea quitar no pertenece al guardarropas");
+          }
      }
 
      public void guardarBorrador(Borrador borrador) {
@@ -47,9 +60,9 @@ public class Guardarropas {
           return sugerencias;
      }
 
-     public List<Sugerencia> sugerenciasSegun(TipoSugerencia tipoSugerencia) {
+     /*public List<Sugerencia> sugerenciasSegun(TipoSugerencia tipoSugerencia) {
           return sugerencias.stream().filter(sugerencia -> sugerencia.esDeTipo(tipoSugerencia)).collect(Collectors.toList());
-     }
+     }*/
 
      public void aceptar(int indiceSugerencia) {
           Sugerencia sugerencia = sugerencias.get(indiceSugerencia);

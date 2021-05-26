@@ -3,6 +3,11 @@ package Usuarios;
 import Exceptions.GuardarropasInvalidoException;
 import Guardarropas.*;
 import Prendas.Prenda;
+import Sugerencias.Agregar;
+import Sugerencias.Quitar;
+import Sugerencias.Sugerencia;
+import Sugerencias.TipoSugerencia;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,11 +43,11 @@ public class Usuario {
   }
 
   public void sugerirAgregarPrenda(Prenda prenda, GuardarropasCompartido guardarropasCompartidoConmigo) {
-    this.generarSugerencia(prenda, guardarropasCompartidoConmigo, TipoSugerencia.AGREGAR);
+    this.generarSugerencia(prenda, guardarropasCompartidoConmigo, new Agregar());
   }
 
   public void sugerirQuitarPrenda(Prenda prenda, GuardarropasCompartido guardarropasCompartidoConmigo) {
-    this.generarSugerencia(prenda, guardarropasCompartidoConmigo, TipoSugerencia.QUITAR);
+    this.generarSugerencia(prenda, guardarropasCompartidoConmigo, new Quitar());
   }
 
   public void validarCompartidoConmigo(GuardarropasCompartido guardarropasCompartido) {
@@ -50,8 +55,8 @@ public class Usuario {
       throw new GuardarropasInvalidoException("El guardarropas indicado no es un guardarropas compartido conmigo");
     }
   }
-// TODAS SIN DISTINGUIR
-  private List<Sugerencia> visualizarSugerencias(Guardarropas guardarropasPropio, TipoSugerencia tipoSugerencia) {
+// Acá hice que sea posible distinguir entre los dos tipos de sugerencias, pero esto me trajo problemas luego apra aceptar o rechazar y me evitaba tener una posible resolución como la que está ahora, con polimorfismo
+  /*private List<Sugerencia> visualizarSugerencias(Guardarropas guardarropasPropio, TipoSugerencia tipoSugerencia) {
     this.validarpropio(guardarropasPropio);
     return guardarropasPropio.sugerenciasSegun(tipoSugerencia);
   }
@@ -62,7 +67,7 @@ public class Usuario {
 
   public List<Sugerencia> visualizarSugerenciasParaQuitarPrendas(Guardarropas guardarropasPropio) {
     return this.visualizarSugerencias(guardarropasPropio, TipoSugerencia.QUITAR);
-  }
+  }*/
 
   private void validarpropio(Guardarropas guardarropasPropio) {
     if(!guardarropasPropios.contains(guardarropasPropio)) {
@@ -71,14 +76,17 @@ public class Usuario {
   }
 
   public void aceptarSugerencia(int indiceSugerencia, Guardarropas guardarropasPropio) {
+    this.validarpropio(guardarropasPropio);
     guardarropasPropio.aceptar(indiceSugerencia);
   }
 
   public void rechazarSugerencia(int indiceSugerencia, Guardarropas guardarropasPropio) {
+    this.validarpropio(guardarropasPropio);
     guardarropasPropio.rechazar(indiceSugerencia);
   }
 
   public void deshacerSugerencia(int indiceSugerencia, Guardarropas guardarropasPropio) {
+    this.validarpropio(guardarropasPropio);
     guardarropasPropio.deshacer(indiceSugerencia);
   }
 
