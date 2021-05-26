@@ -32,7 +32,7 @@ public class GuardarropasCompartido extends Guardarropas{
 
   public void rechazar(int indiceSugerencia) {
     Sugerencia sugerencia = sugerencias.get(indiceSugerencia);
-    sugerencia.rechazar(this);
+    sugerencia.rechazar();
   }
 
   public void deshacer(int indiceSugerencia) {

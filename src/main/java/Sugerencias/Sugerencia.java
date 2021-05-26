@@ -2,7 +2,7 @@ package Sugerencias;
 
 import Exceptions.SugerenciaAceptadaException;
 import Exceptions.SugerenciaNoAceptadaException;
-import Guardarropas.Guardarropas;
+import Guardarropas.GuardarropasCompartido;
 import Prendas.Prenda;
 
 public class Sugerencia {
@@ -24,7 +24,7 @@ public class Sugerencia {
     return this.prenda;
   }
 
-  public void aceptar(Guardarropas guardarropas) {
+  public void aceptar(GuardarropasCompartido guardarropas) {
     if(this.aceptada) {
       throw new SugerenciaAceptadaException("La sugerencia ya ha sido aceptada");
     }
@@ -33,7 +33,7 @@ public class Sugerencia {
     this.tipoSugerencia.aceptar(this.getPrenda(), guardarropas);
   }
 
-  public void rechazar(Guardarropas guardarropas) {
+  public void rechazar(/*Guardarropas guardarropas*/) {
     if(!this.aceptada) {
       throw new SugerenciaNoAceptadaException("La sugerencia no ha sido aceptada, y por lo tanto no se puede rechazar");
     }
@@ -41,7 +41,7 @@ public class Sugerencia {
     //this.aplicarSegunTipo(this, guardarropas);
   }
 
-  public void deshacer(Guardarropas guardarropas) {
+  public void deshacer(GuardarropasCompartido guardarropas) {
     this.tipoSugerencia.deshacer(this.getPrenda(), guardarropas);
   }
 

@@ -28,11 +28,11 @@ public class Usuario {
 
   public void crearGuardarropasCompartido(List<Usuario> usuariosConAcceso) {
     GuardarropasCompartido guardarropasCompartido = new GuardarropasCompartido();
-    usuariosConAcceso.forEach(usuario -> usuario.setGuardarropasCompartidosConmigo(guardarropasCompartido));
+    usuariosConAcceso.forEach(usuario -> usuario.agregarGuardarropasCompartidoConmigo(guardarropasCompartido));
     this.guardarropasCompartidosConOtrosUsuarios.add(guardarropasCompartido);
   }
 
-  public void setGuardarropasCompartidosConmigo(GuardarropasCompartido guardarropas) {
+  public void agregarGuardarropasCompartidoConmigo(GuardarropasCompartido guardarropas) {
     guardarropasCompartidosConmigo.add(guardarropas);
   }
 
@@ -89,5 +89,4 @@ public class Usuario {
     this.validarpropio(guardarropasPropioCompartido);
     guardarropasPropioCompartido.deshacer(indiceSugerencia);
   }
-
 }

@@ -4,14 +4,10 @@ import Exceptions.PrendaNoExistenteException;
 import Prendas.Borrador;
 import Prendas.Categoria;
 import Prendas.Prenda;
-import Sugerencias.Sugerencia;
-import Sugerencias.TipoSugerencia;
 import Uniformes.Uniforme;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class Guardarropas {
      private List<Prenda> prendas;
