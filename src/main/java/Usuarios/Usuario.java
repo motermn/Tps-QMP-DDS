@@ -3,10 +3,7 @@ package Usuarios;
 import Exceptions.GuardarropasInvalidoException;
 import Guardarropas.*;
 import Prendas.Prenda;
-import Sugerencias.Agregar;
-import Sugerencias.Quitar;
 import Sugerencias.Sugerencia;
-import Sugerencias.TipoSugerencia;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +23,7 @@ public class Usuario {
     this.guardarropasPropios.add(guardarropasNuevo);
   }
 
-  public void crearGuardarropasCompartido(List<Usuario> usuariosConAcceso) {
+  public void crearGuardarropasCompartido(List<Usuario> usuariosConAcceso) { // ver esta parte
     GuardarropasCompartido guardarropasCompartido = new GuardarropasCompartido();
     usuariosConAcceso.forEach(usuario -> usuario.agregarGuardarropasCompartidoConmigo(guardarropasCompartido));
     this.guardarropasCompartidosConOtrosUsuarios.add(guardarropasCompartido);
@@ -35,19 +32,21 @@ public class Usuario {
   public void agregarGuardarropasCompartidoConmigo(GuardarropasCompartido guardarropas) {
     guardarropasCompartidosConmigo.add(guardarropas);
   }
-
+/*
   private void generarSugerencia(Prenda prenda, GuardarropasCompartido guardarropasCompartidoConmigo, TipoSugerencia tipoSugerencia) {
     this.validarCompartidoConmigo(guardarropasCompartidoConmigo);
     Sugerencia sugerencia = new Sugerencia(prenda, tipoSugerencia);
     guardarropasCompartidoConmigo.agregarSugerencia(sugerencia);
-  }
+  }*/
 
   public void sugerirAgregarPrenda(Prenda prenda, GuardarropasCompartido guardarropasCompartidoConmigo) {
-    this.generarSugerencia(prenda, guardarropasCompartidoConmigo, new Agregar());
+    this.validarCompartidoConmigo(guardarropasCompartidoConmigo); // Ver si esta línea se puede abstraer apra no repetirla
+    guardarropasCompartidoConmigo.generarSugerenciaDeAgregado(prenda);
   }
 
   public void sugerirQuitarPrenda(Prenda prenda, GuardarropasCompartido guardarropasCompartidoConmigo) {
-    this.generarSugerencia(prenda, guardarropasCompartidoConmigo, new Quitar());
+    this.validarCompartidoConmigo(guardarropasCompartidoConmigo);
+    guardarropasCompartidoConmigo.generarSugerenciaDeEliminacion(prenda);
   }
 
   public void validarCompartidoConmigo(GuardarropasCompartido guardarropasCompartido) {
@@ -75,18 +74,19 @@ public class Usuario {
     }
   }
 
-  public void aceptarSugerencia(int indiceSugerencia, GuardarropasCompartido guardarropasPropioCompartido) {
+  // pasa referencia de sugerencia, no indice
+  public void aceptarSugerencia(Sugerencia sugerencia, GuardarropasCompartido guardarropasPropioCompartido) {
     this.validarpropio(guardarropasPropioCompartido);
-    guardarropasPropioCompartido.aceptar(indiceSugerencia);
+    sugerencia.aceptar(guardarropasPropioCompartido);
   }
 
-  public void rechazarSugerencia(int indiceSugerencia, GuardarropasCompartido guardarropasPropioCompartido) {
+  public void rechazarSugerencia(Sugerencia sugerencia, GuardarropasCompartido guardarropasPropioCompartido) {
     this.validarpropio(guardarropasPropioCompartido);
-    guardarropasPropioCompartido.rechazar(indiceSugerencia);
+    sugerencia.rechazar(guardarropasPropioCompartido);
   }
 
-  public void deshacerSugerencia(int indiceSugerencia, GuardarropasCompartido guardarropasPropioCompartido) {
+  public void deshacerSugerencia(Sugerencia sugerencia, GuardarropasCompartido guardarropasPropioCompartido) {
     this.validarpropio(guardarropasPropioCompartido);
-    guardarropasPropioCompartido.deshacer(indiceSugerencia);
+    sugerencia.deshacer(guardarropasPropioCompartido);
   }
 }

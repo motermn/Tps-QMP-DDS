@@ -5,45 +5,46 @@ import Exceptions.SugerenciaNoAceptadaException;
 import Guardarropas.GuardarropasCompartido;
 import Prendas.Prenda;
 
-public class Sugerencia {
+public abstract class Sugerencia {
   private Prenda prenda;
-  private TipoSugerencia tipoSugerencia;
   private boolean aceptada;
 
-  public Sugerencia(Prenda prenda, TipoSugerencia tipoSugerencia) {
+  public Sugerencia(Prenda prenda) {
     this.prenda = prenda;
-    this.tipoSugerencia = tipoSugerencia;
     this.aceptada = false;
   }
 
-  public boolean esDeTipo(TipoSugerencia tipoSugerencia) {
+  /*public boolean esDeTipo(TipoSugerencia tipoSugerencia) {
     return this.tipoSugerencia.equals(tipoSugerencia);
-  }
+  }*/
 
   public Prenda getPrenda() {
     return this.prenda;
   }
 
-  public void aceptar(GuardarropasCompartido guardarropas) {
+  public boolean getAceptada() {
+    return this.aceptada;
+  }
+
+  public void aceptar(GuardarropasCompartido guardarropasCompartido) {
     if(this.aceptada) {
       throw new SugerenciaAceptadaException("La sugerencia ya ha sido aceptada");
     }
     this.aceptada = true;
-    //this.aplicarSegunTipo(this, guardarropas);
-    this.tipoSugerencia.aceptar(this.getPrenda(), guardarropas);
+    //this.aplicarSegunTipo(this, guardarropasCompartido);
   }
 
-  public void rechazar(/*Guardarropas guardarropas*/) {
-    if(!this.aceptada) {
+  public void rechazar(GuardarropasCompartido guardarropasCompartido) {
+    if(!this.getAceptada()) {
       throw new SugerenciaNoAceptadaException("La sugerencia no ha sido aceptada, y por lo tanto no se puede rechazar");
     }
     this.aceptada = false;
-    //this.aplicarSegunTipo(this, guardarropas);
+    //this.aplicarSegunTipo(this, guardarropas); ESTOD EBERIA ELIMINARSE
   }
 
-  public void deshacer(GuardarropasCompartido guardarropas) {
-    this.tipoSugerencia.deshacer(this.getPrenda(), guardarropas);
-  }
+  public abstract void deshacer(GuardarropasCompartido guardarropasCompartido);
+
+  //ublic abstract void aplicar(GuardarropasCompartido guardarropasCompartido);
 
   /*private void aplicarSegunTipo(Sugerencia sugerencia, Guardarropas guardarropas) {
     if(sugerencia.esDeTipo(TipoSugerencia.AGREGAR)) {
