@@ -34,23 +34,4 @@ public class GuardarropasCompartido extends Guardarropas{
   public List<Sugerencia> getSugerencias() {
     return sugerencias;
   }
-
-     /*public List<Sugerencia> sugerenciasSegun(TipoSugerencia tipoSugerencia) {
-          return sugerencias.stream().filter(sugerencia -> sugerencia.esDeTipo(tipoSugerencia)).collect(Collectors.toList());
-     }*/
-/*
-  public void aceptar(int indiceSugerencia) {
-    Sugerencia sugerencia = sugerencias.get(indiceSugerencia);
-    sugerencia.aceptar(this);
-  }
-
-  public void rechazar(int indiceSugerencia) {
-    Sugerencia sugerencia = sugerencias.get(indiceSugerencia);
-    sugerencia.rechazar();
-  }
-
-  public void deshacer(int indiceSugerencia) {
-    Sugerencia sugerencia = sugerencias.get(indiceSugerencia);
-    sugerencia.deshacer(this);
-  }*/
 }

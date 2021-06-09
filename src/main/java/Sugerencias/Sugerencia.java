@@ -14,10 +14,6 @@ public abstract class Sugerencia {
     this.aceptada = false;
   }
 
-  /*public boolean esDeTipo(TipoSugerencia tipoSugerencia) {
-    return this.tipoSugerencia.equals(tipoSugerencia);
-  }*/
-
   public Prenda getPrenda() {
     return this.prenda;
   }
@@ -31,7 +27,6 @@ public abstract class Sugerencia {
       throw new SugerenciaAceptadaException("La sugerencia ya ha sido aceptada");
     }
     this.aceptada = true;
-    //this.aplicarSegunTipo(this, guardarropasCompartido);
   }
 
   public void rechazar(GuardarropasCompartido guardarropasCompartido) {
@@ -39,20 +34,7 @@ public abstract class Sugerencia {
       throw new SugerenciaNoAceptadaException("La sugerencia no ha sido aceptada, y por lo tanto no se puede rechazar");
     }
     this.aceptada = false;
-    //this.aplicarSegunTipo(this, guardarropas); ESTOD EBERIA ELIMINARSE
   }
 
   public abstract void deshacer(GuardarropasCompartido guardarropasCompartido);
-
-  //ublic abstract void aplicar(GuardarropasCompartido guardarropasCompartido);
-
-  /*private void aplicarSegunTipo(Sugerencia sugerencia, Guardarropas guardarropas) {
-    if(sugerencia.esDeTipo(TipoSugerencia.AGREGAR)) {
-      guardarropas.guardarPrenda(sugerencia.getPrenda());
-    }
-    else
-    {
-      guardarropas.quitarPrenda(sugerencia.getPrenda());
-    }
-  }*/
 }
