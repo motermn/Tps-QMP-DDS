@@ -2,12 +2,10 @@ Prendas\Material.class
 Exceptions\PrendaNoExistenteException.class
 Prendas\Prenda.class
 Prendas\TipoPrenda.class
-Sugerencias\TipoSugerencia.class
 AsesorDeImagen\AsesorDeImagen.class
 Prendas\Categoria.class
 Clima\ProveedorClima.class
 Exceptions\SugerenciaAceptadaException.class
-Sugerencias\Quitar.class
 Clima\AccuWeatherAPI$1.class
 Clima\ServicioMeteorologicoAccuWeatherApi.class
 Exceptions\GuardarropasInvalidoException.class
@@ -26,5 +24,6 @@ Prendas\Borrador.class
 Clima\AccuWeatherAPI.class
 Uniformes\Uniforme.class
 Prendas\Trama.class
-Sugerencias\Agregar.class
+Sugerencias\SugerenciaDeAgregado.class
 Exceptions\SugerenciaNoAceptadaException.class
+Sugerencias\SugerenciaDeEliminacion.class
