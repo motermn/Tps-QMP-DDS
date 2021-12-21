@@ -1,5 +1,7 @@
 package Clima;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
+
 import java.util.*;
 
 public final class AccuWeatherAPI {
@@ -20,5 +22,10 @@ public final class AccuWeatherAPI {
         put("UnitType", 18);
       }});
     }});
+  }
+
+  public List<String> getAlertas(String ciudad) {
+     // TODO Se me complicó como hacer esta parte (el tipado)
+    return new ArrayList<String>();
   }
 }

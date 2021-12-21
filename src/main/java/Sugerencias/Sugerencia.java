@@ -1,40 +1,45 @@
 package Sugerencias;
 
 import Exceptions.SugerenciaAceptadaException;
-import Exceptions.SugerenciaNoAceptadaException;
-import Guardarropas.GuardarropasCompartido;
+import Exceptions.SugerenciaRechazadaException;
+import Guardarropas.Guardarropas;
 import Prendas.Prenda;
 
 public abstract class Sugerencia {
   private Prenda prenda;
-  private boolean aceptada;
+  private Estado estado;
 
   public Sugerencia(Prenda prenda) {
     this.prenda = prenda;
-    this.aceptada = false;
+    this.estado = Estado.PENDIENTE;
   }
 
   public Prenda getPrenda() {
     return this.prenda;
   }
 
-  public boolean getAceptada() {
-    return this.aceptada;
+  public boolean tieneEstado(Estado estado) {
+    return this.estado.equals(estado);
   }
 
-  public void aceptar(GuardarropasCompartido guardarropasCompartido) {
-    if(this.aceptada) {
+  public void aceptar(Guardarropas guardarropasCompartido) {
+    if(this.tieneEstado(Estado.ACEPTADO)) {
       throw new SugerenciaAceptadaException("La sugerencia ya ha sido aceptada");
     }
-    this.aceptada = true;
+    this.cambiarEstadoA(Estado.ACEPTADO);
   }
 
-  public void rechazar(GuardarropasCompartido guardarropasCompartido) {
-    if(!this.getAceptada()) {
-      throw new SugerenciaNoAceptadaException("La sugerencia no ha sido aceptada, y por lo tanto no se puede rechazar");
+  private void cambiarEstadoA(Estado nuevoEstado) {
+    this.estado = nuevoEstado;
+  }
+
+  public void rechazar(Guardarropas guardarropasCompartido) {
+    if(this.tieneEstado(Estado.RECHAZADO)) {
+      throw new SugerenciaRechazadaException("La sugerencia ya ha sido rechazada, y por lo tanto no se puede rechazar");
     }
-    this.aceptada = false;
+    this.cambiarEstadoA(Estado.RECHAZADO);
   }
 
-  public abstract void deshacer(GuardarropasCompartido guardarropasCompartido);
+  public abstract void deshacer(Guardarropas guardarropasCompartido);
+
 }

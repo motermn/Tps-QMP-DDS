@@ -1,6 +1,6 @@
 package Sugerencias;
 
-import Guardarropas.GuardarropasCompartido;
+import Guardarropas.Guardarropas;
 import Prendas.Prenda;
 
 public class SugerenciaDeEliminacion extends Sugerencia{
@@ -10,13 +10,13 @@ public class SugerenciaDeEliminacion extends Sugerencia{
   }
 
   @Override
-  public void aceptar(GuardarropasCompartido guardarropasCompartido) {
+  public void aceptar(Guardarropas guardarropasCompartido) {
     super.aceptar(guardarropasCompartido);
     guardarropasCompartido.quitarPrenda(this.getPrenda());
   }
 
   @Override
-  public void deshacer(GuardarropasCompartido guardarropasCompartido) {
+  public void deshacer(Guardarropas guardarropasCompartido) {
     guardarropasCompartido.guardarPrenda(this.getPrenda());
   }
 }
